@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Racer Game</title>
+</head>
+<body>
+<h3>...and they're off!</h3>
+
+  <script>
+    //object constructor to identify race participant properties
+    function Racer (name,speed,focus) {
+      this.name = name;
+      this.speed = speed;
+      this.focus = focus;
+      this.position = 0;
+      this.isFocused = function() {
+        return Math.floor(Math.random() * 10) < this.focus;
+      }
+      this.advance = function() {
+        if (this.isFocused()) {
+          this.position += this.speed;
+        }  
+      }
+      this.progress = function () {
+        return this.name + " is at: " + this.position
+      }
+    }
+
+  //declare race participants and assign properties
+    var racer1 = new Racer ("Tortise",2,9);
+    var racer2 = new Racer ("Hare",8,2);
+    var racer3 = new Racer ("The Pink Ranger",6,7);
+    var racer4 = new Racer ("Sonic the Hedgehog",9,5);
+    var racer5 = new Racer ("Luigi",4,7);
+    var racer6 = new Racer ("The Lunch Lady",5,9);
+
+  //declare race length
+    var meters = 100;
+
+  /*I wonder how to do this in a way that would accomodate new racers? Also, could I create an array of racer positions and then sort them (p556 in JS book) so I could print out the top 3? */
+
+  // while all positions are < meters, all racers advance. 
+
+    while ((racer1.position < meters) && (racer2.position < meters) && (racer3.position < meters) && (racer4.position < meters) && (racer5.position < meters) && (racer6.position < meters)) {
+      racer1.advance();
+      racer2.advance();
+      racer3.advance();
+      racer4.advance();
+      racer5.advance();
+      racer6.advance();
+      console.log(racer1.progress();
+        racer2.progress();
+        racer3.progress();
+        racer4.progress();
+        racer5.progress();
+        racer6.progress());
+      alert("Moving right along...")
+    }
+
+  // once a racers position > meters, progress is printed and user is alerted to end of race.
+
+    console.log(racer1.progress();
+        racer2.progress();
+        racer3.progress();
+        racer4.progress();
+        racer5.progress();
+        racer6.progress());
+
+    alert("We have a winner!")
+
+</body>
+</html>
+  
+
